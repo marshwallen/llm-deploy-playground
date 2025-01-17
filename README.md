@@ -50,9 +50,9 @@ sudo sh start_tritonserver.sh
 # 这里会开放三个端口，其中8000对应HTTP请求，8001对应GRPC请求
 ```
 
-- 验证 Triton 服务是否正常工作
+- 验证 Triton 服务是否正常工作，能否正常返回数据
 ```sh
-sh client_test.sh
+python client.py
 ```
 
 ## Reference
