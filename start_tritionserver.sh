@@ -1,4 +1,4 @@
-docker run --gpus all --rm \
+docker run --gpus all \
     -p 18999:8000 -p 18998:8001 -p 18997:8002 \
     --shm-size=1G -e PYTHONIOENCODING=utf-8 \
     --ulimit memlock=-1 --ulimit stack=67108864 \

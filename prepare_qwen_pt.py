@@ -45,7 +45,7 @@ vllm_json = """{
     "tokenizer": "Qwen2.5-0.5B",
     "trust_remote_code":"true",
     "disable_log_requests": "true",
-    "gpu_memory_utilization": 0.95
+    "gpu_memory_utilization": 0.8
 }"""
 
 with open(data_dir+"/model.json", "w") as f:
