@@ -45,14 +45,18 @@ python prepare_qwen_pt.py
 
 - 启动 Triton 服务
 ```sh
-sudo sh start_tritonserver.sh
+sudo sh start_triton.sh
 # 注：模型和缓存在显存占用中的比例可在模型权重目录下的 model.json 中配置（gpu_memory_utilization）
 # 这里会开放三个端口，其中8000对应HTTP请求，8001对应GRPC请求
 ```
 
 - 验证 Triton 服务是否正常工作，能否正常返回数据
 ```sh
-python client.py
+# Http 客户端
+cd client
+python client_http.py
+# grpc 客户端
+python client_grpc.py
 ```
 
 ## Reference

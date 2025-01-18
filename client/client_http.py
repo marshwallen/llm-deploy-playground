@@ -1,4 +1,4 @@
-# 客户端，访问 triton 的资源
+# 客户端 HTTP 访问 triton 的资源
 # 支持并发测试
 
 import requests
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     # 主函数
     question = "逻辑回归是什么？"
 
-    num_threads = 50
+    num_threads = 10
     # print(request_test(question))
     t0 = time.time()
     request_test_parallel(question, num_threads)
