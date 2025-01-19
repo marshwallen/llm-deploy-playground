@@ -25,6 +25,9 @@ https://github.com/triton-inference-server/server
 ## Instruction
 - 安装环境依赖
 ```sh
+# pip 环境
+pip install -r requirements.txt
+
 # 拉取triton镜像
 sudo docker pull nvcr.io/nvidia/tritonserver:24.12-py3
 
@@ -53,8 +56,9 @@ sudo sh start_triton.sh
 - 验证 Triton 服务是否正常工作，能否正常返回数据
 ```sh
 # Http 客户端
-cd client
+cd client/
 python client_http.py
+
 # grpc 客户端
 python client_grpc.py
 ```

@@ -1,0 +1,6 @@
+modelscope==1.20.0
+numpy==2.2.2
+Requests==2.32.3
+transformers==4.48.0
+tritonclient==2.53.0
+vllm==0.6.4.post1
