@@ -56,7 +56,7 @@ sudo sh start_triton.sh
 - 验证 Triton 服务是否正常工作，能否正常返回数据
 ```sh
 # Http 客户端
-cd client/
+cd deploy-triton/client/
 python client_http.py
 
 # grpc 客户端
