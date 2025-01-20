@@ -49,6 +49,9 @@ python client_http.py
 python client_grpc.py
 ```
 
+- 后端服务实现
+- ```model_template.py``` 定义了模型如何与vLLM交互并提供服务。具体实现可在该文件修改。
+
 ## Reference
 - [模型推理服务工具综述](https://zhuanlan.zhihu.com/p/721395381)
 - [模型推理服务化框架Triton保姆式教程（一）：快速入门](https://zhuanlan.zhihu.com/p/629336492)
