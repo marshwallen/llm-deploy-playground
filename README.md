@@ -13,3 +13,6 @@
 
 ## 1 Triton Inference Server 部署
 - https://github.com/marshwallen/llm-deploy-playground/tree/main/triton
+
+## 2 LangChain 部署
+- https://github.com/marshwallen/llm-deploy-playground/tree/main/langchain

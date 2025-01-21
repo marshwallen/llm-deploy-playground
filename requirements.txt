@@ -1,6 +1,9 @@
+langchain_core==0.3.31
+langgraph==0.2.65
 modelscope==1.20.0
 numpy==2.2.2
 Requests==2.32.3
+torch==2.5.1
 transformers==4.48.0
 tritonclient==2.53.0
 vllm==0.6.4.post1
