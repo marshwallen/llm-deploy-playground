@@ -38,16 +38,27 @@ python prepare_qwen_pt.py
 sudo sh start_triton.sh
 # 注：模型和缓存在显存占用中的比例可在模型权重目录下的 model.json 中配置（gpu_memory_utilization）
 # 这里会开放三个端口，其中8000对应HTTP请求，8001对应GRPC请求
+
+# 启动成功后可见其服务状态
+# I0121 06:41:55.135739 1 grpc_server.cc:2558] "Started GRPCInferenceService at 0.0.0.0:8001"
+# I0121 06:41:55.135989 1 http_server.cc:4725] "Started HTTPService at 0.0.0.0:8000"
+# I0121 06:41:55.182729 1 http_server.cc:358] "Started Metrics Service at 0.0.0.0:8002"
 ```
 
 - 验证 Triton 服务是否正常工作，能否正常返回数据
 ```sh
+# 检查 docker 服务状态
+sudo docker ps
+# CONTAINER ID   IMAGE                                COMMAND                  CREATED              STATUS              PORTS                                                                                                                                         NAMES
+# a4849af71c1c   tritonserver:24.12-vllm-py3-custom   "/opt/nvidia/nvidia_…"   About a minute ago   Up About a minute   0.0.0.0:18999->8000/tcp, [::]:18999->8000/tcp, 0.0.0.0:18998->8001/tcp, [::]:18998->8001/tcp, 0.0.0.0:18997->8002/tcp, [::]:18997->8002/tcp   quizzical_wescoff
+
 # Http 客户端
 python client_http.py
 
 # grpc 客户端
 python client_grpc.py
 ```
+
 
 - 后端服务实现
 - ```model_template.py``` 定义了模型如何与vLLM交互并提供服务。具体实现可在该文件修改。
