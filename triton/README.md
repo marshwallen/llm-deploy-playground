@@ -1,24 +1,27 @@
-## Triton的定位
+## 部署简介
+本 repo 采用 Triton 框架 + vLLM 推理后端的方式完成 LLM 的部署，可通过 API 访问
+- vLLM: https://github.com/vllm-project/vllm
+- Triton: https://github.com/triton-inference-server/server
+
+## Triton 推理服务的整体架构
 - 单节点推理服务
 - 支持异构，比如：CPU、GPU、TPU等
 - 支持多框架，比如：TensorRT、Pytorch、FasterTransformer等
 
-## Triton 推理服务的整体架构
 ![Triton](https://pica.zhimg.com/v2-625bf16c17f968303deeecdccd292134_1440w.jpg)
 
-## Triton 仓库
-https://github.com/triton-inference-server/server
-
 ## Instruction
-- 安装环境依赖
+1. **安装环境依赖**
 ```sh
 # pip 环境
 pip install -r requirements.txt
-
 # 拉取triton镜像
 sudo docker pull nvcr.io/nvidia/tritonserver:24.12-py3
+```
 
-# 进入该 docker 容器，安装vLLM后commit
+2. **在 Triton 容器中部署 vLLM**
+- 这里先拉取 triton docker 容器，进入该容器安装 vLLM 后重新 commit
+```sh
 # 这一步的前提是安装好 nvidia-container-toolkit
 sudo docker run --gpus all -it --rm nvcr.io/nvidia/tritonserver:24.12-py3 /bin/bash
 sudo apt install vllm -i [可选镜像源]
@@ -27,13 +30,14 @@ sudo apt install vllm -i [可选镜像源]
 sudo docker commit [container_id] tritonserver:24.12-vllm-py3-custom
 ```
 
-- 准备预训练模型（本项目以8G显存单卡，Qwen2.5-0.5B为例子）
+3. **准备预训练模型**
+- 本 repo 以 RTX 3060 Ti 8G 单卡，Qwen2.5-0.5B为例子
 ```sh
 # 从modelscope下载模型，并自动构建模型目录
 python prepare_qwen_pt.py
 ```
 
-- 启动 Triton 服务
+4. **启动 Triton 服务**
 ```sh
 sudo sh start_triton.sh
 # 注：模型和缓存在显存占用中的比例可在模型权重目录下的 model.json 中配置（gpu_memory_utilization）
@@ -45,7 +49,7 @@ sudo sh start_triton.sh
 # I0121 06:41:55.182729 1 http_server.cc:358] "Started Metrics Service at 0.0.0.0:8002"
 ```
 
-- 验证 Triton 服务是否正常工作，能否正常返回数据
+5. **验证 Triton 服务是否正常工作，能否正常返回数据**
 ```sh
 # 检查 docker 服务状态
 sudo docker ps
@@ -59,8 +63,7 @@ python client_http.py
 python client_grpc.py
 ```
 
-
-- 后端服务实现
+6. **后端服务实现**
 - ```model_template.py``` 定义了模型如何与vLLM交互并提供服务。具体实现可在该文件修改。
 
 ## Reference
