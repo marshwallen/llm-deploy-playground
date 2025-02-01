@@ -44,6 +44,7 @@ python bulid_openvino_ir.py \
 ```
 - 如果系统中有多个 GPU，可以通过 ```device_name="GPU.1"``` 指定具体的 GPU
 - 可以在 Model Optimizer 中使用 ```--data_type FP16``` 将模型转换为 FP16 精度，以提高性能。相关代码位于 ```build_openvino_ir.py``` 中
+- 亦可使用 OpenVINO 的异步推理来提高吞吐量：https://docs.openvino.ai/2024/notebooks/async-api-with-output.html
 - 在以上参数的设定下，单张 Intel(R) Arc(TM) 140V GPU 的 benchmark 结果如下：
 ```sh
 [Step 11/11] Dumping statistics report
