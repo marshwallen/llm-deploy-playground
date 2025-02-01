@@ -2,7 +2,7 @@
 - 本 repo 是 LLM 部署在 Intel(R) GPU/NPU 平台上的实践，基于OpenVINO™ 工具套件
 - OpenVINO™ 工具套件是一款开源工具套件，可以缩短延迟，提高吞吐量，加速 AI 推理过程，同时保持精度，缩小模型占用空间，优化硬件使用。它简化了计算机视觉、大型语言模型 (LLM) 和生成式 AI 等领域的 AI 开发和深度学习集成。
 
-![image](https://www.intel.cn/content/dam/develop/public/us/en/include/openvino/openvino-white-3000px.png)
+<img src="https://www.intel.cn/content/dam/develop/public/us/en/include/openvino/openvino-white-3000px.png " alt="openvino" width="480">
 
 ## 设备环境
 - CPU: Intel(R) Core(TM) Ultra 7 258V   2.20 GHz
