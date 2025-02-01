@@ -23,7 +23,7 @@ openvino_env\Scripts\activate
 python -m pip install --upgrade pip
 # Step 4: Download and install the package
 pip install openvino==2024.6.0
-# Step 5 (Recommand): Install openvino dev
+# Step 5 (Recommanded): Install openvino dev
 pip install openvino-dev
 ```
 
