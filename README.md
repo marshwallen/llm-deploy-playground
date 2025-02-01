@@ -16,3 +16,6 @@
 
 ## 2 LangChain 部署
 - https://github.com/marshwallen/llm-deploy-playground/tree/main/langchain
+
+## 3 Intel(R) 平台 GPU 的部署
+- https://github.com/marshwallen/llm-deploy-playground/tree/main/openvino
