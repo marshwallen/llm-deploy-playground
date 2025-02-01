@@ -1,4 +1,4 @@
-# Langchain 的工程化部署 （RAG）
+# Langchain 的工程化部署
 
 - LangChain implements a standard interface for large language models and related technologies, such as embedding models and vector stores, and integrates with hundreds of providers.
 
