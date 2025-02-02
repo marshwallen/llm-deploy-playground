@@ -19,15 +19,14 @@ def create_ir(args):
     model_dir = os.path.join(os.getcwd(), "model")
 
     snapshot_download(args.model_id, cache_dir=model_dir)
-    _lock_dir = os.path.join("model", ".locks")
-    if os.path.exists(_lock_dir):
-        shutil.rmtree(_lock_dir)
 
     # 加载 Qwen 模型和对应的 tokenizer
     model = AutoModelForCausalLM.from_pretrained(
         args.model_id,
         local_files_only=True,
         cache_dir=model_dir,
+        trust_remote_code=True,
+        
     )
     model.eval()
 
@@ -35,14 +34,15 @@ def create_ir(args):
         args.model_id,
         local_files_only=True,
         cache_dir=model_dir,
+        trust_remote_code=True
         )
 
     # 创建示例输入（tokenized 输入）
     dummy_input = tokenizer("Hello, how are you?", return_tensors="pt")["input_ids"]
 
     # 导出为 ONNX 格式
-    onnx_path = f"onnx/{args.model_id.split('/')[-1]}.onnx"
-    os.makedirs("onnx", exist_ok=True)
+    onnx_path = f"onnx/{args.model_id}/{args.model_id.split('/')[-1]}.onnx"
+    os.makedirs(f"onnx/{args.model_id}/", exist_ok=True)
 
     torch.onnx.export(
         model,
@@ -59,7 +59,7 @@ def create_ir(args):
     print(f"Model exported to {onnx_path}")
 
     # Convert to onnx
-    command = ["mo", "--input_model", f"onnx/{args.model_id.split('/')[-1]}.onnx", "--output_dir", "output/"]
+    command = ["mo", "--input_model", onnx_path, "--output_dir", "output/"]
     try:
         result = subprocess.run(command, check=True, text=True, capture_output=True)
         print("Command output:", result.stdout)

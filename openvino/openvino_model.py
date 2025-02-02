@@ -12,6 +12,7 @@ class OpenVINOModel:
             model_id,
             local_files_only=True,
             cache_dir=os.path.join(os.getcwd(), "model"),
+            trust_remote_code=True
             )
         
         # 加载模型
