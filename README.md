@@ -103,3 +103,24 @@ sudo docker ps
     - 在 Open-Webui 上的可视化页面操作（设置-模型页面）
 
 4. **愉快地玩起来吧**
+
+## 5 分布式推理服务部署
+- 需要分布式集群管理工具（如：Kubernetes）
+- 需要 1 台或多台物理机或虚拟机（master 节点），用于：
+    - 部署前端页面（Open-WebUI）
+    - 负载均衡和路由转发（Nginx、Ingress）
+    - 模型和设备监控服务（Grafana + Prometheus + Loki）
+    - 堡垒机，防御各种网络攻击（Ngx_waf）
+    - 其他推理服务等
+- 需要 N 台物理机或虚拟机（work 节点），用于部署推理服务实例，包括
+    - 英伟达 GPU 推理后端（Ollama、Triton）
+    - Intel(R) GPU 推理后端（Ollama-Intel、OpenVINO）
+    - AMD GPU 推理后端
+    - 国产显卡推理后端（摩尔线程、昇腾、天数智芯、沐曦）
+    - CPU 推理后端
+- 需要 N 台物理机（work 节点），用于数据存储：
+    - 用于存放模型权重文件和模型输入输出配置（如对象存储 MinIO）
+    - 用于存放 RAG 相关数据（Milvus、Elasticsearch）
+    - 灾备和容灾（多副本、异地备份）
+    - 用户和模型相关数据库（MySQL、PostgreSQL）或 NoSQL 数据库（如 MongoDB）
+  
