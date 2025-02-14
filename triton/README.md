@@ -1,7 +1,9 @@
 ## 部署简介
 本 repo 采用 Triton 框架 + vLLM 推理后端的方式完成 LLM 的部署，可通过 API 访问
-- vLLM: https://github.com/vllm-project/vllm
-- Triton: https://github.com/triton-inference-server/server
+- vLLM 文档: https://github.com/vllm-project/vllm
+- Triton 文档: 
+    - https://github.com/triton-inference-server/server
+    - https://developer.nvidia.com/triton-inference-server
 
 ## Triton 推理服务的整体架构
 - 单节点推理服务

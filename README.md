@@ -1,29 +1,39 @@
 # LLM-deploy-playground
 - LLM 本地部署实践
 
-## Introduction
+## 😺 Introduction
 - 推理服务部署参考：https://github.com/liguodongiot/llm-action
 
-## 推理框架的基本要素
+## 🤔 推理框架的基本要素
 1. 得有一个部署平台/集群（如：Kubernetes）。用于对一个推理服务的生命周期的管理（模型的加载/卸载，模型服务实例的弹性扩缩容等）
 2. 还应该有一个负载均衡器（如：Ingress），解决模型推理服务实例负载均衡的问题。将客户端的请求，均衡的分配给推理服务实例
 3. 还有一个模型仓库（如：本地文件系统），对模型权重文件和模型输入输出配置进行管理
 4. 之后还应该有一个模型监控服务，用于观察模型的宏观/微观的数据
 5. 最后，也是最核心的，它还应该有一个推理服务，进行模型推理
 
-## 1 Triton Inference Server 部署
+## 😎 Triton Inference Server 部署
+- NVIDIA 开源的商用级别的服务框架
 - 跳转：https://github.com/marshwallen/llm-deploy-playground/tree/main/triton
 
-## 2 LangChain 部署
+## 😎 LangChain 部署
+- LangChain 是一个用于开发由语言模型驱动的应用程序的框架
 - 跳转：https://github.com/marshwallen/llm-deploy-playground/tree/main/langchain
 
-## 3 Intel(R) 平台 GPU 的部署
+## 😎 Intel(R) 平台 GPU 的部署
+1. **Ollama 部署**
+- Ollama for Intel: https://github.com/francisol/ollatel
+- 该项目封装了Intel官方提供的AI推理工具包，通过图形化界面一键完成部署（Windows）
+- 支持多种Intel Arc显卡架构（不包括B系列）
+
+2. **OpenVINO 部署**
+- OpenVINO™ 工具套件是 Intel 官方开源工具套件，支持计算机视觉、大型语言模型 (LLM) 和生成式 AI 等领域的 AI 开发和深度学习集成
 - 跳转：https://github.com/marshwallen/llm-deploy-playground/tree/main/openvino
 
-## 4 Ollma + Open-Webui 交互式页面部署
+## 😎 Ollma + 交互式前端部署
 1. **安装 Ollma**
+- Ollama 是 Go 语言（主要）写的大语言模型推理框架
 - 官方安装指南：https://github.com/ollama/ollama/blob/main/README.md#quickstart
-- 以下为省流版：
+- 以下为省流版（For x86 Linux）：
 ```sh
 # Auto install
 curl -fsSL https://ollama.com/install.sh | sh
@@ -102,9 +112,13 @@ sudo docker ps
     ```
     - 在 Open-Webui 上的可视化页面操作（设置-模型页面）
 
-4. **愉快地玩起来吧**
+4. **其他优秀的大语言模型前端工具**
+- **Lobe Chat**: https://github.com/lobehub/lobe-chat
+- **AnythingLLM**: https://github.com/Mintplex-Labs/anything-llm
+- **Chatbox AI**: https://github.com/Bin-Huang/Chatbox
+- **NextJS Ollama LLM UI**: https://github.com/jakobhoeg/nextjs-ollama-llm-ui
 
-## 5 分布式推理服务部署
+## 😎 分布式推理服务部署
 - 需要分布式集群管理工具（如：Kubernetes）
 - 需要 1 台或多台物理机或虚拟机（master 节点），用于：
     - 部署前端页面（Open-WebUI）

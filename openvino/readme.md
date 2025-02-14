@@ -1,6 +1,6 @@
 # 部署简介
 - 本 repo 是 LLM 部署在 Intel(R) GPU/NPU 平台上的实践，基于OpenVINO™ 工具套件
-- OpenVINO™ 工具套件是一款开源工具套件，可以缩短延迟，提高吞吐量，加速 AI 推理过程，同时保持精度，缩小模型占用空间，优化硬件使用。它简化了计算机视觉、大型语言模型 (LLM) 和生成式 AI 等领域的 AI 开发和深度学习集成。
+- OpenVINO™ 工具套件是一款开源工具套件，可以缩短延迟，提高吞吐量，加速 AI 推理过程，同时保持精度，缩小模型占用空间，优化硬件使用率。
 - OpenVINO™ 官方文档: https://docs.openvino.ai/2024/index.html
 - 在 OpenVINO™ 上推理 Hugging Face 的模型：https://huggingface.co/docs/optimum/main/intel/openvino/inference
 - 在 Optimum Intel 和 OpenVINO™ 上加速 Hugging Face 的模型 (OVQuantizer)：https://huggingface.co/blog/openvino
