@@ -123,7 +123,7 @@ sudo docker ps
 - 需要 1 台或多台物理机或虚拟机（master 节点），用于：
     - 部署前端页面（Open-WebUI）
     - 负载均衡和路由转发（Nginx、Ingress）
-    - 模型和设备监控服务（Grafana + Prometheus + Loki）
+    - 模型和设备监控服务（Grafana + Prometheus + Loki），实现对集群中各推理实例的日志收集和负载监控，多机多卡种混合推理的负载调控
     - 堡垒机，防御各种网络攻击（Ngx_waf）
     - 其他推理服务等
 - 需要 N 台物理机或虚拟机（work 节点），用于部署推理服务实例，包括
