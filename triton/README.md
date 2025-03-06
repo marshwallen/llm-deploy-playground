@@ -66,6 +66,8 @@ python client_grpc.py
 ```
 
 6. **后端服务实现**
+- 参考 **[triton-inference-server/python_backend](https://github.com/triton-inference-server/python_backend)**
+- The Triton backend for Python. The goal of Python backend is to let you serve models written in Python by Triton Inference Server without having to write any C++ code.
 - ```model_template.py``` 定义了模型如何与vLLM交互并提供服务。具体实现可在该文件修改。
 
 ## Reference

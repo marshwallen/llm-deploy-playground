@@ -1,3 +1,6 @@
+# Reference: https://www.jianshu.com/p/a1367e87ce92
+# 适配 Triton Server 的 Python 后端
+
 import asyncio
 import json
 import os
